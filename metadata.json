@@ -1,0 +1,5 @@
+{
+  "name": "GovPro Assistant",
+  "description": "An AI-powered assistant for capture management and proposal writers, streamlining responses to government RFIs and RFPs. This tool helps business development teams analyze documents, manage workflows, and ground their strategy in best practices, all through a configurable, role-based interface.",
+  "requestFramePermissions": []
+}
