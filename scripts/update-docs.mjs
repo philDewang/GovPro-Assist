@@ -19,6 +19,10 @@ async function listFiles(dir) {
 async function updateDocumentation() {
   console.log('Starting documentation update process...');
 
+  if (!process.env.GEMINI_API_KEY) {
+    console.error("Error: GEMINI_API_KEY environment variable not set.");
+    process.exit(1);
+  }
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
   // 1. Read all relevant source and documentation files
