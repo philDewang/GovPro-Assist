@@ -5,6 +5,8 @@ import { Icon } from './Icon';
 type FeedbackType = 'bug' | 'feature';
 type SubmissionStatus = 'idle' | 'submitting' | 'submitted';
 
+const MODAL_ANIMATION_DURATION = 300;
+
 export const Feedback: React.FC = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [feedbackType, setFeedbackType] = useState<FeedbackType>('bug');
@@ -26,7 +28,7 @@ export const Feedback: React.FC = () => {
     const handleCloseModal = () => {
         setModalOpen(false);
         // Delay resetting the form until the modal has animated out
-        setTimeout(resetForm, 300);
+        setTimeout(resetForm, MODAL_ANIMATION_DURATION);
     };
 
     const handleSubmit = (e: FormEvent) => {
@@ -40,7 +42,6 @@ export const Feedback: React.FC = () => {
         
         // Mock API call to a backend that would then create a GitHub issue
         setTimeout(() => {
-            console.log('Feedback submitted:', { feedbackType, title, description, email });
             setStatus('submitted');
         }, 1500);
     };
