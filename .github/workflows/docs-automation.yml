@@ -37,7 +37,12 @@ jobs:
         run: |
           git config --global user.name 'docs-bot'
           git config --global user.email 'docs-bot@users.noreply.github.com'
+          
+          # Pull the latest changes from the remote branch, rebasing our local changes on top
+          git pull --rebase
+          
           git add docs/reviews/TODO.md docs/users_guide/USERS_GUIDE.md
+          
           # Check if there are changes to commit
           if ! git diff --staged --quiet; then
             git commit -m "docs: Automated documentation update [skip ci]"
