@@ -1,0 +1,16 @@
+{
+  "name": "govpro-assistant-docs-automation",
+  "version": "1.0.0",
+  "description": "Scripts for automating documentation updates.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "update-docs": "node scripts/update-docs.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^1.20.0"
+  }
+}
