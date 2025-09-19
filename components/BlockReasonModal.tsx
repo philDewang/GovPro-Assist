@@ -29,7 +29,6 @@ export const BlockReasonModal: React.FC<BlockReasonModalProps> = ({ isOpen, onCl
     };
 
     return (
-        // FIX: The 'Task' object has a 'name' property, not 'text'.
         <Modal isOpen={isOpen} onClose={onClose} title={`Block Task: ${task?.name}`}>
             <div className="space-y-4">
                 <div>

@@ -55,7 +55,14 @@ ${documentContent}
         });
         
         const jsonText = response.text.trim();
-        const parsedResult = JSON.parse(jsonText);
+        let parsedResult;
+
+        try {
+            parsedResult = JSON.parse(jsonText);
+        } catch (parseError) {
+            console.error("Failed to parse AI response as JSON:", jsonText);
+            throw new Error("The AI returned a response that was not valid JSON. Please try again.");
+        }
 
         // Basic validation
         if (
@@ -69,9 +76,10 @@ ${documentContent}
         
         return parsedResult as AnalysisResult;
 
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error calling Gemini API:", error);
-        throw new Error("Failed to analyze the document. Please check the API key and network connection.");
+        // Pass the more specific error message if it exists, otherwise use a generic one.
+        throw new Error(error.message || "Failed to analyze the document. Please check the API key and network connection.");
     }
 };
 

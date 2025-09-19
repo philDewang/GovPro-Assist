@@ -10,6 +10,7 @@ import { Page, AnalysisResult, Theme, TeamMember, Task, RoleDefinition, Workflow
 import * as aiService from './services/ai/aiService';
 import { BlockReasonModal } from './components/BlockReasonModal';
 import { CreateProjectModal } from './components/CreateProjectModal';
+import { Feedback } from './components/Feedback';
 
 // Initial data is now structured within Projects
 const initialProjects: Project[] = [
@@ -416,6 +417,7 @@ const App: React.FC = () => {
             >
                 {renderPage()}
             </Layout>
+            <Feedback />
         </>
     );
 };
